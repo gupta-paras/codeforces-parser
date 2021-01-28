@@ -81,3 +81,26 @@ pretest - 3: Failed</span>
 | Expected Output  | White        |
 | Programs Output  | Green if success else Red          |
 
+<br>
+
+## Contents
+### <b>parse_contest.bat:</b> 
+- Calls parse_contest.py and change directory to current folder<br>
+
+### <b>parse_contest.py:</b> 
+- Fetch contest details from contest page and get all problems list<br>
+- fetchs pretests by starting new thread for each problem page<br>
+- generates apropriate directory tree
+
+### <b>ref/ref.cpp: </b>
+- Template cpp file<br>
+
+### <b>ref/run.bat: </b>
+- Compile and Run Cpp<br>
+- Compile only if executable is modified before the code<br>
+
+### <b>ref/test.bat: </b>
+- calls test_script.py with problem<br>
+
+### <b>ref/test_script.py: </b>
+- script to execute all pretests one by one for given problem<br>
