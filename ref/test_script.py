@@ -4,6 +4,7 @@ import re
 from termcolor import colored
 from colorama import init
 import sys
+import subprocess
 init()
 
 q = str(sys.argv[1])
@@ -24,7 +25,9 @@ for e in pretests:
     
     shutil.copy(input_src, local_input)
 
-    ret = os.system("run {}".format(q))
+    proc = subprocess.Popen(["run.bat", q], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    proc.communicate()
+    ret = proc.wait()
     
     # compare output with folder output
     
@@ -39,8 +42,6 @@ for e in pretests:
 
     ref_parsed = [e for e in re.split(r'\s+', ref_out) if e ]
     out_parsed = [e for e in re.split(r'\s+', out) if e ]
-
-    print(out_parsed)   
     
     print("-"*30)
     outcolor = 'green'

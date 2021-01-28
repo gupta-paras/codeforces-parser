@@ -70,6 +70,9 @@ logger.info("creating directory structure...")
 pretest_folder = '{}/pretests'.format(contest_id)
 code_folder = '{}'.format(contest_id)
 
+if (os.path.exists(pretest_folder)) :
+    exit(0)
+
 shutil.rmtree(pretest_folder, ignore_errors=True)
 os.makedirs(pretest_folder, exist_ok=True)
 
