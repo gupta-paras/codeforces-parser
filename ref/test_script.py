@@ -26,9 +26,11 @@ for e in pretests:
     shutil.copy(input_src, local_input)
 
     proc = subprocess.Popen(["run.bat", q], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    proc.communicate()
+    out, err = proc.communicate()
     ret = proc.wait()
-    
+    if (ret): 
+        print("program exited with return code: ",ret)
+        print("traceback: " , err.decode('utf-8'))
     # compare output with folder output
     
     with open(input_src) as f:
